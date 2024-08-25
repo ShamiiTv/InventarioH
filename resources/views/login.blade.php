@@ -41,6 +41,7 @@
                 </div>
                 <div class="recuperarContraseña">
                     <a class="recuperarContraseña"href="{{ route('password.request') }}">Recuperar contraseña</a>
+                    
                 </div>
             </form>
         </div>

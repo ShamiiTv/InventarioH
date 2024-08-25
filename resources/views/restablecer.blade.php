@@ -39,8 +39,10 @@
                     <input type="email" class="form-control" name="email" placeholder="Ingrese su correo electrónico" required>
                 </div>
                 <div class="contenedorBoton">
-                    <button type="submit" class="btn btn-primary">Enviar Enlace de Restablecimiento</button>
+                    <button type="submit" class="btn1">Enviar Enlace de Restablecimiento</button>
+                    <button type="button" class="btn2" onclick="window.location.href='{{ route('login') }}'">Iniciar Sesión</button>
                 </div>
+
             </form>
         </div>
     </div>

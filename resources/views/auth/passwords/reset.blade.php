@@ -46,7 +46,7 @@
                     <input type="password" class="form-control" name="password_confirmation" placeholder="Confirmar Contraseña" required>
                 </div>
                 <div class="contenedorBoton">
-                    <button type="submit" class="btn btn-primary">Actualizar Contraseña</button>
+                    <button type="submit" class="btn2">Actualizar Contraseña</button>
                 </div>
             </form>
         </div>
