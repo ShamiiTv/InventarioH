@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\IngresoRopaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,10 +38,28 @@ Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name(
 
 Route::get('/base', function () {
     return view('base');
-});
+})->name('base')->middleware('auth');
 
 Route::get('/todos', function () {
     return view('todos.index');
-});
+})->middleware('auth');
 
 Route::post('/todos', [TodosController::class,'store'])->name('todos');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/IngresoRSC', function () {
+    return view('IngresoRSC');
+})->name('IngresoRSC')->middleware('auth');
+
+Route::get('/EgresoRSC', function () {
+    return view('EgresoRSC');
+})->name('EgresoRSC')->middleware('auth');
+
+Route::get('registroIELE', function () {
+    return view('registroIELE');
+})->name('registroIELE')->middleware('auth');
+
+Route::get('/ingresoRSC', [IngresoRopaController::class, 'showForm'])->name('IngresoRSC');
+Route::post('/ingresoRSC', [IngresoRopaController::class, 'store']);
+Route::get('/get-tipo-ropa-detalles', [IngresoRopaController::class, 'getTipoRopaDetalles']);

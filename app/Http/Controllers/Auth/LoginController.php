@@ -8,19 +8,26 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    // Método de inicio de sesión
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed
-            return redirect()->intended('home');
+            // Autenticación exitosa
+            return redirect()->intended('base'); // Cambia 'home' por la ruta a la que deseas redirigir
         }
 
-        // Authentication failed
+        // Autenticación fallida
         return redirect()->back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
         ]);
     }
 
+    // Método de cierre de sesión
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/login'); // Redirige al usuario a la página de inicio de sesión
+    }
 }
